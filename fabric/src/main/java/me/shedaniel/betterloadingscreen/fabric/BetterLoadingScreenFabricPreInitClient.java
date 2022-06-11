@@ -23,7 +23,7 @@ public class BetterLoadingScreenFabricPreInitClient {
         EarlyGraphics.resolver = url -> {
             Path path = Objects.requireNonNull(FabricLoader.getInstance().getModContainer("minecraft").get().getPath(url), "Resource not found: " + url);
             try {
-                return Files.newInputStream(path);
+                return BetterLoadingScreenFabricPreInitClient.class.getClassLoader.getResourceAsStream(path)
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
